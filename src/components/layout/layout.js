@@ -23,10 +23,10 @@ const Layout = ({ children }) => {
     <div className="layout">
       <Nav title={data.site.siteMetadata.title} />
 
-      <div>
-        <main>{children}</main>
+      <div className="under-nav">
+        <main className="page-content">{children}</main>
         <footer className="footer">
-          © {new Date().getFullYear()}, Built my
+          © {new Date().getFullYear()}, built by
           {` `}
           <a href="https://www.milos.netlify.com">
             {data.site.siteMetadata.author}

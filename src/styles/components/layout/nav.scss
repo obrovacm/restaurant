@@ -1,8 +1,21 @@
 .nav {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  height: 67px;
+  border-bottom: 3px double $primary;
+}
+
+.nav .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-family: "Alfa Slab One", cursive;
+  }
 }
 
 .nav ul {
@@ -10,7 +23,10 @@
   flex-direction: column;
 
   position: absolute;
+  top: 100%;
   width: 100%;
+  background: $background-color;
+  border-bottom: 3px double $primary;
 
   list-style: none;
   transition: transform 300ms;
@@ -24,29 +40,61 @@
 }
 
 .nav .nav-item {
+  position: relative;
   text-decoration: none;
   font-weight: bold;
-  // text-transform: capitalize;
   font-size: 1.5em;
-  color: $denim;
+  color: $primary;
   padding: 0.5em;
   &.active {
-    text-decoration: underline;
+    transform: translateX(1em);
+    &::before {
+      position: absolute;
+      content: "";
+      left: -0.7em;
+      top: 50%;
+      transform: translateY(-50%);
+      border-left: 0.8em solid $primary;
+      border-top: 0.3em solid transparent;
+      border-bottom: 0.3em solid transparent;
+      border-right: 1em solid transparent;
+    }
   }
 }
 
 .nav .nav-btn {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+
   z-index: 11;
-  width: 3em;
-  height: 3em;
-  color: $grey;
+  p {
+    z-index: 12;
+  }
+  width: 1.5em;
+  height: 1.5em;
   background: none;
-  transition: border 300ms;
-  border: 0 solid $redish;
+  border: none;
+  font-size: 2em;
+  font-weight: bold;
+  color: $primary;
+  &::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: $primary;
+    transform: translateX(100%);
+    transition: transform 300ms;
+  }
   &.show {
-    border: 0.4em solid $redish;
+    color: $background-color;
+    &::before {
+      transform: translateX(0%);
+    }
   }
 }

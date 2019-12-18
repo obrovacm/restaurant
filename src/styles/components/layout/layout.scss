@@ -1,10 +1,33 @@
 .layout {
   position: relative;
-  margin: 0 1em;
+  min-height: 100vh;
+  @include screen;
   @include md-screen {
   }
   @include lg-screen {
   }
   @include xlg-screen {
   }
+}
+
+.under-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: calc(100vh - 67px);
+}
+.page-content {
+  h1 {
+    margin: 0.5em 0;
+    color: $light-gray;
+    text-shadow: 1px 0px 1px $text-color;
+  }
+  p {
+    margin-bottom: 0.5em;
+  }
+}
+
+.footer {
+  padding: 0.5em 0;
+  border-top: 3px double $primary;
 }

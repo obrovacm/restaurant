@@ -6,8 +6,8 @@ import SEO from "../components/seo"
 const Register = () => (
   <Layout>
     <SEO title="home" />
-    <h1>Welcome to the Register</h1>
-    <p>RECEIPT</p>
+    <h1>Register simulator</h1>
+    <p>RECEIPT: bip-bop</p>
   </Layout>
 )
 

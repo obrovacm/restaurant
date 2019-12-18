@@ -33,11 +33,9 @@ export default class Nav extends Component {
   }
 
   renderNavItem = ({ text, linkTo }, i) => (
-    <li key={i}>
-      <Link to={linkTo} activeClassName={"active"} className="nav-item">
-        {text}
-      </Link>
-    </li>
+    <Link to={linkTo} activeClassName={"active"} className="nav-item">
+      <li key={i}>{text}</li>
+    </Link>
   )
 
   render() {
@@ -57,7 +55,7 @@ export default class Nav extends Component {
           })}
         </ul>
         <button className={`nav-btn ${navOn}`} onClick={this.navToggle}>
-          X
+          <p>X</p>
         </button>
       </nav>
     )

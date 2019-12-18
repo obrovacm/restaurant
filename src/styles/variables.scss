@@ -1,11 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Alfa+Slab+One|Raleway&display=swap");
+
 $white: #f8f8f8;
 $black: #0d0d0d;
 $grey: #262626;
 $light-gray: #bfc0c4;
 $denim: #436573;
-$redish: #bf4c41;
+$reddish: #bf4c41;
 $skin: #f2c8a2;
 $skin-darker: #d9a78b;
+
+$background-color: $white;
+$text-color: $grey;
+$primary: $denim;
+$accent2: $reddish;
+
+@mixin screen {
+  margin: 0 1em;
+}
 
 @mixin sm-screen {
   @media (min-width: 420px) {
@@ -22,14 +33,14 @@ $skin-darker: #d9a78b;
 
 @mixin lg-screen {
   @media (min-width: 950px) {
-    margin: 0 25vw;
+    margin: 0 18vw;
     @content;
   }
 }
 
 @mixin xlg-screen {
   @media (min-width: 1300px) {
-    margin: 0 30vw;
+    margin: 0 23vw;
     @content;
   }
 }
