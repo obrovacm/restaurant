@@ -1,0 +1,10 @@
+.layout {
+  position: relative;
+  margin: 0 1em;
+  @include md-screen {
+  }
+  @include lg-screen {
+  }
+  @include xlg-screen {
+  }
+}

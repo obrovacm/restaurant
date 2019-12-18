@@ -1,0 +1,35 @@
+$white: #f8f8f8;
+$black: #0d0d0d;
+$grey: #262626;
+$light-gray: #bfc0c4;
+$denim: #436573;
+$redish: #bf4c41;
+$skin: #f2c8a2;
+$skin-darker: #d9a78b;
+
+@mixin sm-screen {
+  @media (min-width: 420px) {
+    @content;
+  }
+}
+
+@mixin md-screen {
+  @media (min-width: 640px) {
+    margin: 0 12vw;
+    @content;
+  }
+}
+
+@mixin lg-screen {
+  @media (min-width: 950px) {
+    margin: 0 25vw;
+    @content;
+  }
+}
+
+@mixin xlg-screen {
+  @media (min-width: 1300px) {
+    margin: 0 30vw;
+    @content;
+  }
+}

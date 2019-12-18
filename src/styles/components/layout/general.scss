@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: $skin;
+  overflow: hidden;
+  min-height: 100vh;
+  color: $grey;
+}
+a {
+  text-decoration: none;
+  color: $denim;
+}
