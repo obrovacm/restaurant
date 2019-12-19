@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 
-import navCss from "./nav.module.scss"
+import css from "./nav.module.scss"
 
 const navItems = [
   {
@@ -34,8 +34,8 @@ export default class Nav extends Component {
       <Link
         key={i}
         to={linkTo}
-        activeClassName={navCss.active}
-        className={navCss.navItem}
+        activeClassName={css.active}
+        className={css.navItem}
       >
         <li>{text}</li>
       </Link>
@@ -49,17 +49,17 @@ export default class Nav extends Component {
     const navItemComponents = this.renderNavItems()
 
     return (
-      <nav className={navCss.nav}>
-        <div className={navCss.title}>
+      <nav className={css.nav}>
+        <div className={css.title}>
           <h1>
             <Link to="/">{title}</Link>
           </h1>
         </div>
-        <ul className={`${navCss.list} ${navOn && navCss.listOn}`}>
+        <ul className={`${css.list} ${navOn && css.listOn}`}>
           {navItemComponents}
         </ul>
         <button
-          className={`${navCss.navBtn} ${navOn && navCss.btnListOn}`}
+          className={`${css.navBtn} ${navOn && css.btnListOn}`}
           onClick={this.navToggle}
         >
           <p>{navOn ? "X" : "O"}</p>
