@@ -1,12 +1,19 @@
 .layout {
   position: relative;
   min-height: 100vh;
-  @include screen;
+
+  margin: $margin-min;
+  @include sm-screen {
+    margin: $margin-sm;
+  }
   @include md-screen {
+    margin: $margin-md;
   }
   @include lg-screen {
+    margin: $margin-lg;
   }
   @include xlg-screen {
+    margin: $margin-xlg;
   }
 }
 

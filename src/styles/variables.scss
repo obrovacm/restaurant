@@ -14,9 +14,11 @@ $text-color: $grey;
 $primary: $denim;
 $accent2: $reddish;
 
-@mixin screen {
-  margin: 0 1em;
-}
+$margin-min: 0 1em;
+$margin-sm: 0 6vw;
+$margin-md: 0 12vw;
+$margin-lg: 0 18vw;
+$margin-xlg: 0 22vw;
 
 @mixin sm-screen {
   @media (min-width: 420px) {
@@ -26,21 +28,18 @@ $accent2: $reddish;
 
 @mixin md-screen {
   @media (min-width: 640px) {
-    margin: 0 12vw;
     @content;
   }
 }
 
 @mixin lg-screen {
   @media (min-width: 950px) {
-    margin: 0 18vw;
     @content;
   }
 }
 
 @mixin xlg-screen {
   @media (min-width: 1300px) {
-    margin: 0 23vw;
     @content;
   }
 }

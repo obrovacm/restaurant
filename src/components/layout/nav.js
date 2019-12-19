@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 export default class Nav extends Component {
   state = {
-    navOn: "hide",
+    navOn: false,
     navItems: [
       {
         text: "home",
@@ -21,26 +21,32 @@ export default class Nav extends Component {
   }
 
   navToggle = () => {
-    if (this.state.navOn === "show") {
-      this.setState({
-        navOn: "hide",
-      })
-    } else {
-      this.setState({
-        navOn: "show",
-      })
-    }
+    this.setState({
+      navOn: !this.state.navOn,
+    })
   }
 
-  renderNavItem = ({ text, linkTo }, i) => (
-    <Link to={linkTo} activeClassName={"active"} className="nav-item">
-      <li key={i}>{text}</li>
-    </Link>
-  )
+  renderNavItems = () => {
+    const navItems = this.state.navItems
+    return navItems.map(({ text, linkTo }, i) => {
+      return (
+        <Link
+          key={i}
+          to={linkTo}
+          activeClassName={"active"}
+          className="nav-item"
+        >
+          <li>{text}</li>
+        </Link>
+      )
+    })
+  }
 
   render() {
-    const { navItems, navOn } = this.state
+    const { navOn } = this.state
     const { title } = this.props
+
+    const navOnClass = navOn ? "show" : ""
 
     return (
       <nav className="nav">
@@ -49,12 +55,8 @@ export default class Nav extends Component {
             <Link to="/">{title}</Link>
           </h1>
         </div>
-        <ul className={navOn}>
-          {navItems.map((navItem, i) => {
-            return this.renderNavItem(navItem, i)
-          })}
-        </ul>
-        <button className={`nav-btn ${navOn}`} onClick={this.navToggle}>
+        <ul className={navOnClass}>{this.renderNavItems()}</ul>
+        <button className={`nav-btn ${navOnClass}`} onClick={this.navToggle}>
           <p>X</p>
         </button>
       </nav>

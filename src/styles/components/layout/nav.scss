@@ -30,12 +30,10 @@
 
   list-style: none;
   transition: transform 300ms;
+  transform: translateX(-200%);
 
   &.show {
     transform: translateX(0%);
-  }
-  &.hide {
-    transform: translateX(-200%);
   }
 }
 
