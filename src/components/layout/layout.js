@@ -2,9 +2,10 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Nav from "./nav"
 import "../../styles/base.css"
-import "../../styles/main.scss"
+import layoutCss from "./layout.module.scss"
+
+import Nav from "./nav"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -20,13 +21,13 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div className="layout">
+    <div className={layoutCss.layout}>
       <Nav title={data.site.siteMetadata.title} />
 
-      <div className="under-nav">
-        <main className="page-content">{children}</main>
-        <footer className="footer">
-          © {new Date().getFullYear()}, built by
+      <div className={layoutCss.underNav}>
+        <main className={layoutCss.pageContent}>{children}</main>
+        <footer className={layoutCss.footer}>
+          © {new Date().getFullYear()}, developed by
           {` `}
           <a href="https://www.milos.netlify.com">
             {data.site.siteMetadata.author}

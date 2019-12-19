@@ -1,3 +1,5 @@
+@import "src/styles/variables.scss";
+
 .nav {
   position: relative;
   display: flex;
@@ -9,7 +11,7 @@
   border-bottom: 3px double $primary;
 }
 
-.nav .title {
+.title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +20,7 @@
   }
 }
 
-.nav ul {
+.list {
   display: flex;
   flex-direction: column;
 
@@ -31,36 +33,35 @@
   list-style: none;
   transition: transform 300ms;
   transform: translateX(-200%);
-
-  &.show {
-    transform: translateX(0%);
-  }
+}
+.list-on {
+  transform: translateX(0%);
 }
 
-.nav .nav-item {
+.nav-item {
   position: relative;
   text-decoration: none;
   font-weight: bold;
   font-size: 1.5em;
   color: $primary;
   padding: 0.5em;
-  &.active {
-    transform: translateX(1em);
-    &::before {
-      position: absolute;
-      content: "";
-      left: -0.7em;
-      top: 50%;
-      transform: translateY(-50%);
-      border-left: 0.8em solid $primary;
-      border-top: 0.3em solid transparent;
-      border-bottom: 0.3em solid transparent;
-      border-right: 1em solid transparent;
-    }
+}
+.active {
+  transform: translateX(1em);
+  &::before {
+    position: absolute;
+    content: "";
+    left: -0.7em;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 0.8em solid $primary;
+    border-top: 0.3em solid transparent;
+    border-bottom: 0.3em solid transparent;
+    border-right: 1em solid transparent;
   }
 }
 
-.nav .nav-btn {
+.nav-btn {
   position: relative;
   display: flex;
   justify-content: center;
@@ -70,11 +71,13 @@
   z-index: 11;
   p {
     z-index: 12;
+    pointer-events: none;
   }
   width: 1.5em;
   height: 1.5em;
   background: none;
   border: none;
+  outline: none;
   font-size: 2em;
   font-weight: bold;
   color: $primary;
@@ -89,10 +92,10 @@
     transform: translateX(100%);
     transition: transform 300ms;
   }
-  &.show {
-    color: $background-color;
-    &::before {
-      transform: translateX(0%);
-    }
+}
+.btn-list-on {
+  color: $background-color;
+  &::before {
+    transform: translateX(0%);
   }
 }
