@@ -26,27 +26,17 @@ export default class Nav extends Component {
     })
   }
 
-  renderNavItems = () => {
-    const navItems = this.state.navItems
-    return navItems.map(({ text, linkTo }, i) => {
-      return (
-        <Link
-          key={i}
-          to={linkTo}
-          activeClassName={"active"}
-          className="nav-item"
-        >
-          <li>{text}</li>
-        </Link>
-      )
-    })
-  }
-
   render() {
-    const { navOn } = this.state
+    const { navItems, navOn } = this.state
     const { title } = this.props
 
     const navOnClass = navOn ? "show" : ""
+
+    const navItemComponents = navItems.map(({ text, linkTo }, i) => (
+      <Link key={i} to={linkTo} activeClassName={"active"} className="nav-item">
+        <li>{text}</li>
+      </Link>
+    ))
 
     return (
       <nav className="nav">
@@ -55,7 +45,7 @@ export default class Nav extends Component {
             <Link to="/">{title}</Link>
           </h1>
         </div>
-        <ul className={navOnClass}>{this.renderNavItems()}</ul>
+        <ul className={navOnClass}>{navItemComponents}</ul>
         <button className={`nav-btn ${navOnClass}`} onClick={this.navToggle}>
           <p>X</p>
         </button>
