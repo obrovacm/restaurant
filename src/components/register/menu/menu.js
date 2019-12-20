@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
 import Product from "./product"
-import CurrentOrder from "./current-order"
+import Order from "./order"
 
 import styles from "./menu.module.scss"
 
@@ -73,7 +73,7 @@ export default class Menu extends Component {
       .filter(item => item.category === this.state.selectedCategory)
       .map((item, i) => (
         <p key={i} onClick={() => this.addOrder(item)}>
-          {item.name + " - " + item.price + " din."}
+          {item.name}
         </p>
       ))
   }
@@ -102,12 +102,6 @@ export default class Menu extends Component {
     const shownProducts = this.renderProducts()
     const categories = this.renderCategories()
 
-    // console.log("menu props:", this.props)
-    // console.log("this.state.categories:", this.state.categories)
-    // console.log("this.state.selectedCategory:", this.state.selectedCategory)
-
-    console.log(this.state.order)
-
     return (
       <>
         <hr />
@@ -116,7 +110,7 @@ export default class Menu extends Component {
           <div>{shownProducts}</div>
         </div>
         <hr />
-        <CurrentOrder order={this.state.order} removeOrder={this.removeOrder} />
+        <Order order={this.state.order} removeOrder={this.removeOrder} />
       </>
     )
   }
