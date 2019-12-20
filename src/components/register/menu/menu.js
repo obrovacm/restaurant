@@ -54,9 +54,17 @@ export default class Menu extends Component {
       selectedCategory: category,
     })
   }
-  addToCurrentOrder = item => {
+  addOrder = item => {
     this.setState({
       order: [...this.state.order, item],
+    })
+  }
+  removeOrder = index => {
+    let newStateOrder = [...this.state.order]
+    newStateOrder.splice(index, 1)
+    console.log("stateOrder", newStateOrder)
+    this.setState({
+      order: newStateOrder,
     })
   }
 
@@ -64,7 +72,7 @@ export default class Menu extends Component {
     return this.state.items
       .filter(item => item.category === this.state.selectedCategory)
       .map((item, i) => (
-        <p key={i} onClick={() => this.addToCurrentOrder(item)}>
+        <p key={i} onClick={() => this.addOrder(item)}>
           {item.name + " - " + item.price + " din."}
         </p>
       ))
@@ -102,12 +110,13 @@ export default class Menu extends Component {
 
     return (
       <>
+        <hr />
         <div className={styles.menu}>
           <div className={styles.categories}>{categories}</div>
           <div>{shownProducts}</div>
         </div>
         <hr />
-        <CurrentOrder />
+        <CurrentOrder order={this.state.order} removeOrder={this.removeOrder} />
       </>
     )
   }
