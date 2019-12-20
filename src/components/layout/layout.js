@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import "../../styles/base.css"
-import css from "./layout.module.scss"
+import styles from "./layout.module.scss"
 
 import Nav from "./nav"
 
@@ -21,12 +21,12 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div className={css.layout}>
+    <div className={styles.layout}>
       <Nav title={data.site.siteMetadata.title} />
 
-      <div className={css.underNav}>
-        <main className={css.pageContent}>{children}</main>
-        <footer className={css.footer}>
+      <div className={styles.underNav}>
+        <main className={styles.pageContent}>{children}</main>
+        <footer className={styles.footer}>
           © {new Date().getFullYear()}, developed by
           {` `}
           <a href="https://www.milos.netlify.com">

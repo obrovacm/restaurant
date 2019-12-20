@@ -5,14 +5,25 @@ import Illustrator from "./illustrator/illustrator"
 import Receipt from "./receipt/receipt"
 
 export default class RegisterApp extends Component {
-  state = {}
+  state = {
+    orders: [],
+  }
+
+  addOrder = newOrder => {
+    this.setState({
+      orders: [...this.state.orders, newOrder],
+    })
+    console.log("added order: ", newOrder)
+  }
 
   render() {
     return (
-      <div>
-        <Menu />
+      <>
+        <Menu addOrder={this.addOrder} />
+        <hr />
+        <Receipt />
         <Illustrator />
-      </div>
+      </>
     )
   }
 }

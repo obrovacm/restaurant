@@ -9,6 +9,7 @@ const Register = () => (
     <SEO title="home" />
     <h1>Register simulator</h1>
     <p>RECEIPT: bip-bop</p>
+    <hr />
     <RegisterApp />
   </Layout>
 )

@@ -1,1 +1,25 @@
 @import "src/styles/variables.scss";
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  div * {
+    cursor: pointer;
+    transition: transform 200ms;
+    &:hover {
+      color: $denim;
+      transform: translateX(0.5em);
+    }
+  }
+}
+.shownItems {
+}
+.categories {
+  display: flex;
+  flex-direction: column;
+  margin-right: 1em;
+}
+.selectedCategory {
+  font-weight: bold;
+  text-decoration: underline;
+}

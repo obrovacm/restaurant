@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 
-import css from "./nav.module.scss"
+import styles from "./nav.module.scss"
 
 const navItems = [
   {
@@ -23,7 +23,7 @@ export default class Nav extends Component {
     navOn: false,
   }
 
-  navToggle = event => {
+  navToggle = () => {
     this.setState({
       navOn: !this.state.navOn,
     })
@@ -34,8 +34,8 @@ export default class Nav extends Component {
       <Link
         key={i}
         to={linkTo}
-        activeClassName={css.active}
-        className={css.navItem}
+        activeClassName={styles.active}
+        className={styles.navItem}
       >
         <li>{text}</li>
       </Link>
@@ -49,20 +49,20 @@ export default class Nav extends Component {
     const navItemComponents = this.renderNavItems()
 
     return (
-      <nav className={css.nav}>
-        <div className={css.title}>
+      <nav className={styles.nav}>
+        <div className={styles.title}>
           <h1>
             <Link to="/">{title}</Link>
           </h1>
         </div>
-        <ul className={`${css.list} ${navOn && css.listOn}`}>
+        <ul className={`${styles.list} ${navOn && styles.listOn}`}>
           {navItemComponents}
         </ul>
         <button
-          className={`${css.navBtn} ${navOn && css.btnListOn}`}
+          className={`${styles.navBtn} ${navOn && styles.btnListOn}`}
           onClick={this.navToggle}
         >
-          <p>{navOn ? "X" : "O"}</p>
+          <p>O</p>
         </button>
       </nav>
     )
