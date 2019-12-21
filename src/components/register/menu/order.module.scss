@@ -1,5 +1,18 @@
+@import "src/styles/variables.scss";
+
 .sameRow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.order {
+  div {
+    cursor: pointer;
+    transition: transform 200ms;
+    &:hover {
+      color: $denim;
+      transform: translateX(0.5em);
+    }
+  }
 }

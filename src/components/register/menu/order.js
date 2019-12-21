@@ -27,7 +27,7 @@ export default class CurrentOrder extends Component {
           <div>items:</div>
           <div>price [din.]</div>
         </div>
-        <div>{renderItems}</div>
+        <div className={styles.order}>{renderItems}</div>
         <hr />
         <div className={styles.sameRow}>
           <button>submit</button>

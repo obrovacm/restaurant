@@ -72,9 +72,15 @@ export default class Menu extends Component {
     return this.state.items
       .filter(item => item.category === this.state.selectedCategory)
       .map((item, i) => (
-        <p key={i} onClick={() => this.addOrder(item)}>
+        <div
+          key={i}
+          onClick={e => this.addOrder(item)}
+          onKeyDown={e => this.addOrder(item)}
+          role="menuitem"
+          tabIndex={0}
+        >
           {item.name}
-        </p>
+        </div>
       ))
   }
 
@@ -90,7 +96,11 @@ export default class Menu extends Component {
           <div
             className={selectedClass}
             key={i}
-            onClick={() => this.selectCategory(category)}
+            onClick={e => this.selectCategory(category)}
+            onKeyDown={e => this.selectCategory(category)}
+            role="menuitem"
+            tabIndex={0}
+            // bug: tab selection triggers onKeyDown func
           >
             {category}
           </div>
