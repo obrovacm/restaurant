@@ -54,12 +54,12 @@ export default class Menu extends Component {
       selectedCategory: category,
     })
   }
-  addOrder = item => {
+  addOrderItem = item => {
     this.setState({
       order: [...this.state.order, item],
     })
   }
-  removeOrder = index => {
+  removeOrderItem = index => {
     let newStateOrder = [...this.state.order]
     newStateOrder.splice(index, 1)
     console.log("stateOrder", newStateOrder)
@@ -74,8 +74,8 @@ export default class Menu extends Component {
       .map((item, i) => (
         <div
           key={i}
-          onClick={e => this.addOrder(item)}
-          onKeyDown={e => this.addOrder(item)}
+          onClick={() => this.addOrderItem(item)}
+          onKeyDown={() => this.addOrderItem(item)}
           role="menuitem"
           tabIndex={0}
         >
@@ -96,8 +96,8 @@ export default class Menu extends Component {
           <div
             className={selectedClass}
             key={i}
-            onClick={e => this.selectCategory(category)}
-            onKeyDown={e => this.selectCategory(category)}
+            onClick={() => this.selectCategory(category)}
+            onKeyDown={() => this.selectCategory(category)}
             role="menuitem"
             tabIndex={0}
             // bug: tab selection triggers onKeyDown func
@@ -120,7 +120,10 @@ export default class Menu extends Component {
           <div>{shownProducts}</div>
         </div>
         <hr />
-        <Order order={this.state.order} removeOrder={this.removeOrder} />
+        <Order
+          order={this.state.order}
+          removeOrderItem={this.removeOrderItem}
+        />
       </>
     )
   }

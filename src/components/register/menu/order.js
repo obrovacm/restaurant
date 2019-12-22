@@ -8,10 +8,14 @@ export default class CurrentOrder extends Component {
     return order.reduce((sum, item) => sum + item.price, 0)
   }
 
-  renderItems = () => {
-    const { order, removeOrder } = this.props
+  renderOrder = () => {
+    const { order, removeOrderItem } = this.props
     return order.map((item, i) => (
-      <div className={styles.sameRow} key={i} onClick={() => removeOrder(i)}>
+      <div
+        className={styles.sameRow}
+        key={i}
+        onClick={() => removeOrderItem(i)}
+      >
         <div>{item.name}</div>
         <div>{item.price}</div>
       </div>
@@ -19,7 +23,7 @@ export default class CurrentOrder extends Component {
   }
 
   render() {
-    const renderItems = this.renderItems()
+    const renderOrder = this.renderOrder()
     const total = this.getTotalPrice()
     return (
       <>
@@ -27,7 +31,7 @@ export default class CurrentOrder extends Component {
           <div>items:</div>
           <div>price [din.]</div>
         </div>
-        <div className={styles.order}>{renderItems}</div>
+        <div className={styles.order}>{renderOrder}</div>
         <hr />
         <div className={styles.sameRow}>
           <button>submit</button>
