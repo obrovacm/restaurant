@@ -8,16 +8,32 @@
 }
 
 .order {
-  .same-row:nth-child(2n) {
+  .same-row:nth-child(2n -1) {
     background: rgba($grey, 0.1);
   }
-  div {
+
+  .order-item {
     cursor: pointer;
-    transition: transform 200ms;
+    transition: background 200ms;
     user-select: none;
+
+    position: relative;
+    overflow: hidden;
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      width: 100%;
+      background: rgba($denim, 0.9);
+      transform: translateX(101%);
+      transition: transform 250ms ease-in-out;
+    }
     &:hover {
-      transform: translateX(3px);
-      color: $denim;
+      &::after {
+        transform: translateX(0%);
+      }
     }
   }
 }

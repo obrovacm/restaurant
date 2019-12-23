@@ -5,7 +5,8 @@ import styles from "./order.module.scss"
 export default class CurrentOrder extends Component {
   getTotalPrice = () => {
     const { order } = this.props
-    return order.reduce((sum, item) => sum + item.price, 0)
+    const total = order.reduce((sum, item) => sum + item.price, 0)
+    return total.toFixed(2)
   }
 
   renderOrder = () => {
@@ -27,11 +28,11 @@ export default class CurrentOrder extends Component {
     return orderObjectKeys.map((key, i) => {
       const count = orderObject[key]
       const item = order.find(item => item.name === key)
-      const price = item.price * count
+      const price = (item.price * count).toFixed(2)
 
       return (
         <div
-          className={styles.sameRow}
+          className={styles.sameRow + " " + styles.orderItem}
           key={i}
           onClick={() => removeOrderItem(key)}
           onKeyDown={e => {
