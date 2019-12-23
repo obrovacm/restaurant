@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 1em;
   div * {
     cursor: pointer;
     transition: transform 200ms, filter 200ms;
@@ -15,21 +14,26 @@
 .categories {
   display: flex;
   flex-direction: column;
-  margin-right: 1em;
+  padding-right: 1em;
   div {
+    padding: 1em 1em 1em 0;
     outline: none;
+    p {
+      text-align: center;
+    }
     &:hover,
     &:focus {
       p {
         color: $denim;
-        transform: translateX(3px);
       }
     }
   }
 }
 .selectedCategory {
   font-weight: bold;
-  text-decoration: underline;
+  p {
+    border-bottom: 3px double $denim;
+  }
 }
 
 .menu-items {
@@ -37,20 +41,26 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
+  padding-top: 1em;
 }
 .menu-item {
-  margin: 0 1em;
-  margin-bottom: 1em;
+  margin: 0 0 1em 2em;
   flex-grow: 1;
-  min-width: 80px;
-  max-width: 100px;
+  min-width: 70px;
+  max-width: 85px;
+  outline: none;
   &:hover {
     color: $denim;
     div {
       transform: rotate(5deg);
       filter: invert(33%) sepia(57%) saturate(285%) hue-rotate(152deg)
         brightness(96%) contrast(86%);
+    }
+  }
+  &:active {
+    div {
+      transform: scale(0.95) rotate(5deg);
     }
   }
   p {

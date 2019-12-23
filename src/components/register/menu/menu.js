@@ -9,11 +9,11 @@ import styles from "./menu.module.scss"
 export default class Menu extends Component {
   state = {
     items: [
-      new Product("water", 105.9, "drink"),
-      new Product("juice", 165.5, "drink"),
-      new Product("coffee", 130, "drink"),
-      new Product("tea", 120, "drink"),
-      new Product("beer", 190, "drink"),
+      new Product("water", 105.9, "drinks"),
+      new Product("juice", 165.5, "drinks"),
+      new Product("coffee", 130, "drinks"),
+      new Product("tea", 120, "drinks"),
+      new Product("beer", 190, "drinks"),
       new Product("fish", 600.99, "food"),
       new Product("chicken", 510.5, "food"),
       new Product("chips", 220, "food"),
@@ -121,7 +121,12 @@ export default class Menu extends Component {
         <hr />
         <div className={styles.menu}>
           <div className={styles.categories}>{categories}</div>
-          <div className={styles.menuItems}>{menuItems}</div>
+          <div className={styles.menuItems}>
+            {menuItems}
+            <div className={styles.menuItem}>
+              {/* just a placeholder for flex-box */}
+            </div>
+          </div>
         </div>
         <Order
           order={this.state.order}
