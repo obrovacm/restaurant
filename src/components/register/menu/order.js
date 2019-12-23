@@ -13,7 +13,6 @@ export default class CurrentOrder extends Component {
     const { order, removeOrderItem } = this.props
     const orderObject = {}
 
-    // const uniqueItems = [...new Set(order)]
     order.forEach(item => {
       if (orderObject[item.name] === undefined) {
         orderObject[item.name] = 1
@@ -22,8 +21,7 @@ export default class CurrentOrder extends Component {
       }
     })
     const orderObjectKeys = Object.keys(orderObject)
-    console.log("orderObject:", orderObject)
-    console.log("order:", order)
+    orderObjectKeys.sort()
 
     return orderObjectKeys.map((key, i) => {
       const count = orderObject[key]

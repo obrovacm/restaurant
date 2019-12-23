@@ -8,6 +8,9 @@
 }
 
 .order {
+  min-height: 180px;
+  max-height: 250px;
+  overflow-y: scroll;
   .same-row:nth-child(2n -1) {
     background: rgba($grey, 0.1);
   }
@@ -51,6 +54,7 @@
   width: 100%;
   font-size: 2em;
   padding: 0.5em;
+  margin-bottom: 1em;
   background: none;
   color: $denim;
   border: 2px solid $denim;

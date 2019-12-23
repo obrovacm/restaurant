@@ -56,4 +56,11 @@ hr {
 .footer {
   padding: 0.5em 0;
   border-top: 3px double $primary;
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }

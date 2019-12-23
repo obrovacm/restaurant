@@ -7,7 +7,7 @@
   margin-top: 1em;
   div * {
     cursor: pointer;
-    transition: transform 200ms;
+    transition: transform 200ms, filter 200ms;
     user-select: none;
   }
 }
@@ -48,7 +48,7 @@
   &:hover {
     color: $denim;
     div {
-      transform: scale(0.9);
+      transform: rotate(5deg);
       filter: invert(33%) sepia(57%) saturate(285%) hue-rotate(152deg)
         brightness(96%) contrast(86%);
     }
