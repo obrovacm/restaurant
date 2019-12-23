@@ -1,19 +1,49 @@
 @import "src/styles/variables.scss";
 
-.sameRow {
+.same-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0.5em;
 }
 
 .order {
+  .same-row:nth-child(2n) {
+    background: rgba($grey, 0.1);
+  }
   div {
     cursor: pointer;
     transition: transform 200ms;
     user-select: none;
     &:hover {
-      transform: translateX(0.5em);
+      transform: translateX(3px);
       color: $denim;
     }
+  }
+}
+
+.total-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0.5em;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+.btn {
+  display: block;
+  width: 100%;
+  font-size: 2em;
+  padding: 0.5em;
+  background: none;
+  color: $denim;
+  border: 2px solid $denim;
+  transition: background 200ms, color 200ms;
+  &:hover {
+    background: $denim;
+    color: $white;
+  }
+  &:active {
+    box-shadow: inner -2px -2px 3px $grey;
   }
 }

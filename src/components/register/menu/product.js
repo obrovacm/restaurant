@@ -1,9 +1,8 @@
 export default class Product {
-  constructor(name, price, category, icon) {
+  constructor(name, price, category) {
     this.name = name
     this.price = price
     this.category = category
-    this.icon = icon
   }
 }
 

@@ -3,6 +3,8 @@
 .menu {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1em;
   div * {
     cursor: pointer;
     transition: transform 200ms;
@@ -15,11 +17,12 @@
   flex-direction: column;
   margin-right: 1em;
   div {
+    outline: none;
     &:hover,
     &:focus {
       p {
         color: $denim;
-        transform: translateX(0.5em);
+        transform: translateX(3px);
       }
     }
   }
@@ -39,7 +42,9 @@
 .menu-item {
   margin: 0 1em;
   margin-bottom: 1em;
-  width: 80px;
+  flex-grow: 1;
+  min-width: 80px;
+  max-width: 100px;
   &:hover {
     color: $denim;
     div {

@@ -20,7 +20,7 @@ export default class RegisterApp extends Component {
     return (
       <>
         <Menu addOrder={this.addOrder} />
-        <hr />
+        <h1>razmak</h1>
         <Receipt />
         <Illustrator />
         <p>register-app je mozda suvisna komponenta</p>

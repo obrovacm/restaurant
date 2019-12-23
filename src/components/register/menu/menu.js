@@ -36,13 +36,7 @@ export default class Menu extends Component {
     this.state.items.forEach(item => {
       allCategories.push(item.category)
     })
-
-    const uniqueCategories = allCategories.filter(
-      (item, index, self) =>
-        // console.log("item", index, ":", item, "\nself: ", self)
-        // self refers to allCategories[] list
-        self.indexOf(item) === index
-    )
+    const uniqueCategories = [...new Set(allCategories)]
 
     this.setState({
       categories: uniqueCategories,
@@ -60,10 +54,13 @@ export default class Menu extends Component {
       order: [...this.state.order, item],
     })
   }
-  removeOrderItem = index => {
+  removeOrderItem = name => {
     let newStateOrder = [...this.state.order]
-    newStateOrder.splice(index, 1)
+    const item = newStateOrder.find(item => item.name === name)
+    const itemIndex = newStateOrder.indexOf(item)
+    newStateOrder.splice(itemIndex, 1)
     console.log("stateOrder", newStateOrder)
+    console.log("itemIndex", itemIndex)
     this.setState({
       order: newStateOrder,
     })
@@ -126,7 +123,6 @@ export default class Menu extends Component {
           <div className={styles.categories}>{categories}</div>
           <div className={styles.menuItems}>{menuItems}</div>
         </div>
-        <hr />
         <Order
           order={this.state.order}
           removeOrderItem={this.removeOrderItem}
