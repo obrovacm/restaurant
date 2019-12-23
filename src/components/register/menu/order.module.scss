@@ -8,8 +8,7 @@
 }
 
 .order {
-  min-height: 180px;
-  max-height: 250px;
+  height: 180px;
   overflow-y: scroll;
   .same-row:nth-child(2n -1) {
     background: rgba($grey, 0.1);
@@ -29,7 +28,7 @@
       bottom: 0;
       height: 1px;
       width: 100%;
-      background: rgba($denim, 0.9);
+      background: rgba($grey, 0.4);
       transform: translateX(101%);
       transition: transform 250ms ease-in-out;
     }
@@ -44,10 +43,35 @@
 .total-price {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  padding: 0.5em;
-  font-weight: bold;
-  font-size: 1.1em;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    border: none;
+    width: 160px;
+    padding: 0.3em;
+    margin: 0.5em 0;
+
+    cursor: pointer;
+    user-select: none;
+
+    border: 1px solid $reddish;
+    background: transparent;
+    color: $reddish;
+    transition: color 200ms, background 200ms;
+    &:hover {
+      background: $reddish;
+      color: $white;
+    }
+    &:active {
+      box-shadow: inset 1px 1px 3px $grey;
+    }
+  }
+  p {
+    padding: 0.5em;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 0;
+  }
 }
 .btn {
   display: block;
@@ -55,6 +79,10 @@
   font-size: 2em;
   padding: 0.5em;
   margin-bottom: 1em;
+
+  cursor: pointer;
+  user-select: none;
+
   background: none;
   color: $denim;
   border: 2px solid $denim;
@@ -63,7 +91,8 @@
     background: $denim;
     color: $white;
   }
+
   &:active {
-    box-shadow: inner -2px -2px 3px $grey;
+    box-shadow: inset 1px 1px 3px $grey;
   }
 }

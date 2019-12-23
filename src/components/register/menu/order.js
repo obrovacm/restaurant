@@ -68,6 +68,7 @@ export default class CurrentOrder extends Component {
         <div className={styles.order}>{renderOrder}</div>
         <hr />
         <div className={styles.totalPrice}>
+          <button>remove order</button>
           <p>{total}</p>
         </div>
         <button className={styles.btn}>submit order</button>
