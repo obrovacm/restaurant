@@ -2,6 +2,7 @@ import React, { Component } from "react"
 
 import Product from "./product"
 import Order from "./order"
+import ItemIcon from "./itemIcon"
 
 import styles from "./menu.module.scss"
 
@@ -17,8 +18,8 @@ export default class Menu extends Component {
       new Product("chicken", 510, "food"),
       new Product("chips", 220, "food"),
       new Product("popcorn", 200, "food"),
-      new Product("ice Cream", 350, "food"),
-      new Product("fruit Salad", 420, "food"),
+      new Product("ice cream", 350, "food"),
+      new Product("fruit salad", 420, "food"),
       new Product("baklava", 400, "food"),
     ],
     categories: null,
@@ -68,12 +69,13 @@ export default class Menu extends Component {
     })
   }
 
-  renderProducts = () => {
+  renderItems = () => {
     return this.state.items
       .filter(item => item.category === this.state.selectedCategory)
       .map((item, i) => (
         <div
           key={i}
+          className={styles.menuItem}
           onClick={() => this.addOrderItem(item)}
           onKeyDown={e => {
             if (e.keyCode === 13) this.addOrderItem(item)
@@ -81,7 +83,8 @@ export default class Menu extends Component {
           role="menuitem"
           tabIndex={0}
         >
-          {item.name}
+          <ItemIcon name={item.name} />
+          <p>{item.name}</p>
         </div>
       ))
   }
@@ -106,14 +109,14 @@ export default class Menu extends Component {
             tabIndex={0}
             // bug: tab selection triggers onKeyDown func
           >
-            {category}
+            <p>{category}</p>
           </div>
         )
       })
   }
 
   render() {
-    const shownProducts = this.renderProducts()
+    const menuItems = this.renderItems()
     const categories = this.renderCategories()
 
     return (
@@ -121,7 +124,7 @@ export default class Menu extends Component {
         <hr />
         <div className={styles.menu}>
           <div className={styles.categories}>{categories}</div>
-          <div>{shownProducts}</div>
+          <div className={styles.menuItems}>{menuItems}</div>
         </div>
         <hr />
         <Order

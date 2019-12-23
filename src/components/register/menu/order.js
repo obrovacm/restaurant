@@ -16,6 +16,7 @@ export default class CurrentOrder extends Component {
         key={i}
         onClick={() => removeOrderItem(i)}
         onKeyDown={e => {
+          // prevents tab-triggering of func
           if (e.keyCode === 13) removeOrderItem(i)
         }}
         role="menuitem"

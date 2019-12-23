@@ -23,6 +23,7 @@ export default class RegisterApp extends Component {
         <hr />
         <Receipt />
         <Illustrator />
+        <p>register-app je mozda suvisna komponenta</p>
       </>
     )
   }

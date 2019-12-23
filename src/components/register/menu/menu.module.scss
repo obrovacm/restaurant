@@ -6,21 +6,50 @@
   div * {
     cursor: pointer;
     transition: transform 200ms;
-    &:hover {
-      color: $denim;
-      transform: translateX(0.5em);
-    }
+    user-select: none;
   }
 }
 
-.shownItems {
-}
 .categories {
   display: flex;
   flex-direction: column;
   margin-right: 1em;
+  div {
+    &:hover,
+    &:focus {
+      p {
+        color: $denim;
+        transform: translateX(0.5em);
+      }
+    }
+  }
 }
 .selectedCategory {
   font-weight: bold;
   text-decoration: underline;
+}
+
+.menu-items {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.menu-item {
+  margin: 0 1em;
+  margin-bottom: 1em;
+  width: 80px;
+  &:hover {
+    color: $denim;
+    div {
+      transform: scale(0.9);
+      filter: invert(33%) sepia(57%) saturate(285%) hue-rotate(152deg)
+        brightness(96%) contrast(86%);
+    }
+  }
+  p {
+    padding-top: 0.5em;
+    text-align: center;
+  }
 }
