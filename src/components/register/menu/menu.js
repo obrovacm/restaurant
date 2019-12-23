@@ -75,7 +75,9 @@ export default class Menu extends Component {
         <div
           key={i}
           onClick={() => this.addOrderItem(item)}
-          onKeyDown={() => this.addOrderItem(item)}
+          onKeyDown={e => {
+            if (e.keyCode === 13) this.addOrderItem(item)
+          }}
           role="menuitem"
           tabIndex={0}
         >
@@ -97,7 +99,9 @@ export default class Menu extends Component {
             className={selectedClass}
             key={i}
             onClick={() => this.selectCategory(category)}
-            onKeyDown={() => this.selectCategory(category)}
+            onKeyDown={e => {
+              if (e.keyCode === 13) this.selectCategory(category)
+            }}
             role="menuitem"
             tabIndex={0}
             // bug: tab selection triggers onKeyDown func

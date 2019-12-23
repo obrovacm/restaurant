@@ -15,6 +15,11 @@ export default class CurrentOrder extends Component {
         className={styles.sameRow}
         key={i}
         onClick={() => removeOrderItem(i)}
+        onKeyDown={e => {
+          if (e.keyCode === 13) removeOrderItem(i)
+        }}
+        role="menuitem"
+        tabIndex={0}
       >
         <div>{item.name}</div>
         <div>{item.price}</div>

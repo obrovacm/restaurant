@@ -55,15 +55,15 @@ export default class Nav extends Component {
             <Link to="/">{title}</Link>
           </h1>
         </div>
-        <ul className={`${styles.list} ${navOn && styles.listOn}`}>
-          {navItemComponents}
-        </ul>
         <button
           className={`${styles.navBtn} ${navOn && styles.btnListOn}`}
           onClick={this.navToggle}
         >
           <p>O</p>
         </button>
+        <ul className={`${styles.list} ${navOn && styles.listOn}`}>
+          {navItemComponents}
+        </ul>
       </nav>
     )
   }
