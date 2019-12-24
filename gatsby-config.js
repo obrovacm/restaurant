@@ -22,8 +22,8 @@ module.exports = {
         name: `restaurant & register`,
         short_name: `restaurant`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#bfc0c4`,
+        theme_color: `#436573`,
         display: `minimal-ui`,
         icon: `src/images/fork.png`, // This path is relative to the root of the site.
       },
