@@ -101,7 +101,8 @@
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translate(-100vw, -50%);
+  transform: translateY(-50%);
+  transform: translateX(-100vw);
   transition: transform 300ms;
 
   display: block;

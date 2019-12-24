@@ -9,12 +9,12 @@ const navItems = [
     linkTo: "/",
   },
   {
-    text: "about",
-    linkTo: "/about",
-  },
-  {
     text: "cash register",
     linkTo: "/register",
+  },
+  {
+    text: "about me",
+    linkTo: "/about",
   },
 ]
 

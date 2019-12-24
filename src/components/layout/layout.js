@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
         <footer className={styles.footer}>
           © {new Date().getFullYear()}, developed by
           {` `}
-          <a href="https://www.milos.netlify.com">
+          <a href="https://milos.netlify.com/">
             {data.site.siteMetadata.author}
           </a>
         </footer>
