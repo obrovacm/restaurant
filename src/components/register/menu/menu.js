@@ -65,6 +65,15 @@ export default class Menu extends Component {
       order: newStateOrder,
     })
   }
+  removeAllOrderItems = () => {
+    this.setState({
+      order: [],
+    })
+  }
+  submitOrder = () => {
+    console.log("Sending order details: bip-bop.")
+    this.removeAllOrderItems()
+  }
 
   renderItems = () => {
     return this.state.items
@@ -104,7 +113,6 @@ export default class Menu extends Component {
             }}
             role="menuitem"
             tabIndex={0}
-            // bug: tab selection triggers onKeyDown func
           >
             <p>{category}</p>
           </div>
@@ -131,6 +139,8 @@ export default class Menu extends Component {
         <Order
           order={this.state.order}
           removeOrderItem={this.removeOrderItem}
+          removeAllOrderItems={this.removeAllOrderItems}
+          submitOrder={this.submitOrder}
         />
       </>
     )

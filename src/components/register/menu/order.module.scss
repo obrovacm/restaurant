@@ -96,3 +96,26 @@
     box-shadow: inset 1px 1px 3px $grey;
   }
 }
+
+.submit-msg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100vw, -50%);
+  transition: transform 300ms;
+
+  display: block;
+  width: 100%;
+  padding: 2em;
+  text-align: center;
+  background: $reddish;
+  box-shadow: 1px 1px 0.5em $grey;
+  p,
+  h1 {
+    margin: 0;
+    color: $white;
+  }
+  &.show-submit-msg {
+    transform: translateX(0);
+  }
+}

@@ -3,10 +3,26 @@ import React, { Component } from "react"
 import styles from "./order.module.scss"
 
 export default class CurrentOrder extends Component {
+  state = {
+    showMessage: false,
+  }
+
   getTotalPrice = () => {
     const { order } = this.props
     const total = order.reduce((sum, item) => sum + item.price, 0)
     return total.toFixed(2)
+  }
+
+  showSubmitMessage = () => {
+    this.props.submitOrder()
+    this.setState({
+      showMessage: true,
+    })
+    setTimeout(() => {
+      this.setState({
+        showMessage: false,
+      })
+    }, 4000)
   }
 
   renderOrder = () => {
@@ -53,6 +69,9 @@ export default class CurrentOrder extends Component {
   render() {
     const renderOrder = this.renderOrder()
     const total = this.getTotalPrice()
+    const { removeAllOrderItems } = this.props
+    const { showMessage } = this.state
+
     return (
       <>
         <hr />
@@ -68,10 +87,21 @@ export default class CurrentOrder extends Component {
         <div className={styles.order}>{renderOrder}</div>
         <hr />
         <div className={styles.totalPrice}>
-          <button>remove order</button>
+          <button onClick={removeAllOrderItems}>remove order</button>
           <p>{total}</p>
         </div>
-        <button className={styles.btn}>submit order</button>
+        <button className={styles.btn} onClick={this.showSubmitMessage}>
+          submit order
+        </button>
+
+        <div
+          class={styles.submitMsg + " " + (showMessage && styles.showSubmitMsg)}
+        >
+          <h1>your order has been submitted!</h1>
+          <p>
+            <small>(not really, this is just a demo message)</small>
+          </p>
+        </div>
       </>
     )
   }
