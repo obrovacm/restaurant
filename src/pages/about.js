@@ -11,7 +11,11 @@ export default () => (
     <p>
       I'm trying to learn and practice programming on a daily basis. This app is
       marking a year since I started my first programming steps at{" "}
-      <a href="https://www.freecodecamp.org/">
+      <a
+        href="https://www.freecodecamp.org/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <b>freeCodeCamp</b>
       </a>
       , although I did have a several months break due to unpredicted life
@@ -19,7 +23,11 @@ export default () => (
     </p>
     <p>
       If you'd like to cooperate on some project, feel free to{" "}
-      <a href="https://milos.netlify.com/">
+      <a
+        href="https://milos.netlify.com/contact"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <b>contact me</b>
       </a>
       .

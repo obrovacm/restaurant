@@ -84,7 +84,19 @@ export default class CurrentOrder extends Component {
           </div>
         </div>
         <hr />
-        <div className={styles.order}>{renderOrder}</div>
+        <div className={styles.order}>
+          {renderOrder}
+          <div
+            class={
+              styles.submitMsg + " " + (showMessage && styles.showSubmitMsg)
+            }
+          >
+            <h1>your order has been submitted!</h1>
+            <p>
+              <small>(not really, this is just a demo message)</small>
+            </p>
+          </div>
+        </div>
         <hr />
         <div className={styles.totalPrice}>
           <button onClick={removeAllOrderItems}>remove order</button>
@@ -93,15 +105,6 @@ export default class CurrentOrder extends Component {
         <button className={styles.btn} onClick={this.showSubmitMessage}>
           submit order
         </button>
-
-        <div
-          class={styles.submitMsg + " " + (showMessage && styles.showSubmitMsg)}
-        >
-          <h1>your order has been submitted!</h1>
-          <p>
-            <small>(not really, this is just a demo message)</small>
-          </p>
-        </div>
       </>
     )
   }

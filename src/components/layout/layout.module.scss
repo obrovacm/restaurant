@@ -8,6 +8,8 @@ body {
   min-height: 100vh;
   color: $text-color;
   font-family: "Raleway", sans-serif;
+}
+p {
   text-align: justify;
 }
 a {
@@ -42,6 +44,13 @@ hr {
   flex-direction: column;
   justify-content: space-between;
   height: calc(100vh - 67px);
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 .page-content {
   h1 {
@@ -57,11 +66,4 @@ hr {
 .footer {
   padding: 0.5em 0;
   border-top: 3px double $primary;
-  a {
-    font-weight: bold;
-    text-decoration: underline;
-    &:hover {
-      text-decoration: none;
-    }
-  }
 }
