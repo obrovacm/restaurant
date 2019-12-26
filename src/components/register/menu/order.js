@@ -5,6 +5,7 @@ import styles from "./order.module.scss"
 export default class CurrentOrder extends Component {
   state = {
     showMessage: false,
+    submittedMessage: false,
   }
 
   getTotalPrice = () => {
@@ -12,9 +13,14 @@ export default class CurrentOrder extends Component {
     const total = order.reduce((sum, item) => sum + item.price, 0)
     return total.toFixed(2)
   }
+  toggleSubmitMessage = () => {
+    const { order } = this.props
+    this.setState({
+      submittedMessage: order.length === 0,
+    })
+  }
 
   showSubmitMessage = () => {
-    this.props.submitOrder()
     this.setState({
       showMessage: true,
     })
@@ -22,7 +28,9 @@ export default class CurrentOrder extends Component {
       this.setState({
         showMessage: false,
       })
-    }, 4000)
+    }, 3000)
+    this.toggleSubmitMessage() //very important order, because next func will change relevant key in state
+    this.props.submitOrder()
   }
 
   renderOrder = () => {
@@ -70,7 +78,7 @@ export default class CurrentOrder extends Component {
     const renderOrder = this.renderOrder()
     const total = this.getTotalPrice()
     const { removeAllOrderItems } = this.props
-    const { showMessage } = this.state
+    const { showMessage, submittedMessage } = this.state
 
     return (
       <>
@@ -87,13 +95,17 @@ export default class CurrentOrder extends Component {
         <div className={styles.order}>
           {renderOrder}
           <div
-            class={
+            className={
               styles.submitMsg + " " + (showMessage && styles.showSubmitMsg)
             }
           >
-            <h1>your order has been submitted!</h1>
+            <h1>
+              {submittedMessage
+                ? "Your list is empty! There's nothing to order."
+                : "Your order has been submitted!"}
+            </h1>
             <p>
-              <small>(not really, this is just a demo message)</small>
+              <small>(this is just a demo message)</small>
             </p>
           </div>
         </div>
